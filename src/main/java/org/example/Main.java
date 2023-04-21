@@ -7,6 +7,17 @@ public class Main {
         // Press Alt+Eingabe with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
         System.out.printf("Hello and welcome!");
+        String sPassword8 = "asdfghjk";
 
     }
+
+    public static boolean stringHasGoodLength(String sPassword){
+        if (sPassword.length() < 8){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
 }
