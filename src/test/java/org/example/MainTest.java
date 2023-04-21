@@ -92,6 +92,7 @@ class MainTest {
         String sBig = "PASSWORD";
 
         String sRightWithNumbers = "1A2b3c4D";
+        String sRightWithNumbers2 = "a1A2b3c4D";
         String sSmallWithNumbers = "1234asdf";
         String sBigWithNumbers = "1234ASDF";
 
@@ -103,6 +104,7 @@ class MainTest {
         boolean actBig = Main.stringHasBigAndSmallLetters(sBig);
 
         boolean actRightWithNumbers = Main.stringHasBigAndSmallLetters(sRightWithNumbers);
+        boolean actRightWithNumbers2 = Main.stringHasBigAndSmallLetters(sRightWithNumbers2);
         boolean actSmallWithNumbers = Main.stringHasBigAndSmallLetters(sSmallWithNumbers);
         boolean actBigWithNumbers = Main.stringHasBigAndSmallLetters(sBigWithNumbers);
         boolean actNone = Main.stringHasBigAndSmallLetters(sNone);
@@ -110,6 +112,7 @@ class MainTest {
         assertTrue(actRight);
         assertTrue(actRight2);
         assertTrue(actRightWithNumbers);
+        assertTrue(actRightWithNumbers2);
         assertFalse(actSmall);
         assertFalse(actBig);
         assertFalse(actSmallWithNumbers);
@@ -161,8 +164,8 @@ class MainTest {
         assertFalse(actSmall);
         assertFalse(actBig);
 
-        assertTrue(actMix);
-        assertTrue(actMix2);
+        assertFalse(actMix);
+        assertFalse(actMix2);
 
         assertTrue(actNumbers);
         assertTrue(actNumbers2);
