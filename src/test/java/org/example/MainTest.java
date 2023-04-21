@@ -124,8 +124,8 @@ class MainTest {
     void stringIsGoodPassword_goodLength() {
          //given
         String sBad = "four";
-        String sRight = "pass1234";
-        String sGood = "pass1234Longer";
+        String sRight = "Pass1585";
+        String sGood = "pas1690Longer";
         //when
         boolean actBad = Main.stringIsGoodPassword(sBad);
         boolean actRight = Main.stringIsGoodPassword(sRight);
@@ -162,6 +162,7 @@ class MainTest {
         assertTrue(actGood);
 
     }
+    @Test
     void stringIsGoodPassword_GoodLetters() {
          //given
         String sSmall = "password";
@@ -198,5 +199,39 @@ class MainTest {
         assertFalse(actNone);
 
      }
+    @Test
+    void EasyPasswordListTest () {
+        //given
+        String[] sEasyPW = {"123456"
+                ,"123456789"
+                ,"12345"
+                ,"qwerty"
+                ,"password"
+                ,"12345678"
+                ,"111111"
+                ,"123123"
+                ,"1234567890"
+                ,"1234567"
+                ,"qwerty123"
+                ,"000000"
+                ,"1q2w3e"
+                ,"aa12345678"
+                ,"abc123"
+                ,"password1"
+                ,"1234"
+                ,"qwertyuiop"
+                ,"123321"
+                ,"password123"};
+        //when
+        int nPattern = sEasyPW.length;
+        boolean[] actual = new boolean[nPattern];
+        for (int i = 0; i < nPattern; i++) {
+            actual[i] = Main.stringIsGoodPassword(sEasyPW[i]);
+        }
+        //then
+        for (int i = 0; i < nPattern; i++) {
+            assertFalse(actual[i]);
+        }
 
+    }
 }

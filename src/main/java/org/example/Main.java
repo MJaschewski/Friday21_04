@@ -10,14 +10,12 @@ public class Main {
         // IntelliJ IDEA suggests fixing it.
 
         String sCurrent = "";
-        String sTest = "";
         Scanner scan = new Scanner(System.in);
         while (!sCurrent.contains("quit")) {
             System.out.println("Enter the next word. Enter 'quit' to quit.");
             sCurrent = scan.nextLine();
             if(!sCurrent.contains("quit")){
                 System.out.println(stringIsGoodPassword(sCurrent));
-                sTest = "";
             }
         }
 
