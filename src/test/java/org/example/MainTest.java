@@ -136,7 +136,32 @@ class MainTest {
         assertTrue(actGood);
 
     }
+
     @Test
+    void stringHasNoEasyPattern(){
+         //given
+        String sPassword = "Password";
+        String sOneTwoTree = "123";
+        String sFourFive = "456";
+        String sSevenEight = "789";
+
+        String sGood = "w1abhu79";
+
+        //when
+        boolean actPW = Main.stringHasNoEasyPattern(sPassword);
+        boolean act123 = Main.stringHasNoEasyPattern(sOneTwoTree);
+        boolean act456 = Main.stringHasNoEasyPattern(sFourFive);
+        boolean act789 = Main.stringHasNoEasyPattern(sSevenEight);
+        boolean actGood = Main.stringHasNoEasyPattern(sGood);
+
+        //then
+        assertFalse(actPW);
+        assertFalse(act123);
+        assertFalse(act456);
+        assertFalse(act789);
+        assertTrue(actGood);
+
+    }
     void stringIsGoodPassword_GoodLetters() {
          //given
         String sSmall = "password";
@@ -173,4 +198,5 @@ class MainTest {
         assertFalse(actNone);
 
      }
+
 }

@@ -1,13 +1,25 @@
 package org.example;
 
+import java.util.Scanner;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
         // Press Alt+Eingabe with your caret at the highlighted text to see how
         // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-        String sPassword8 = "asdfghjk";
+
+        String sCurrent = "";
+        String sTest = "";
+        Scanner scan = new Scanner(System.in);
+        while (!sCurrent.contains("quit")) {
+            System.out.println("Enter the next word. Enter 'quit' to quit.");
+            sCurrent = scan.nextLine();
+            if(!sCurrent.contains("quit")){
+                System.out.println(stringIsGoodPassword(sCurrent));
+                sTest = "";
+            }
+        }
 
     }
 
@@ -53,13 +65,34 @@ public class Main {
             return false;
         }
     }
+    public static boolean stringHasNoEasyPattern(String sPassword){
+        String[] sPattern = {"Password","123","456","789","qwert","rtzu","asd","abc","1q2w","4r5t"};
+        for (int i = 0; i < 10; i++) {
+            if(sPassword.matches("(.*)"+ i + i + i + i +"(.*)")){
+                return false;
+            }
+        }
+        for (int i = 0; i < sPattern.length; i++) {
+            if (sPassword.matches("(.*)" + sPattern[i]+"(.*)")){
+                return false;
+            }
+
+        }
+        return true;
+    }
 
     public static boolean stringIsGoodPassword (String sPassword){
         if(!stringHasGoodLength(sPassword)) {
+            System.out.println("Password is to small. Please enter a password with 8 or more digits");
             return false;
         } else if (!stringHasNumbers(sPassword)) {
+            System.out.println("Password has to include numbers");
             return false;
         } else if (!stringHasBigAndSmallLetters(sPassword)) {
+            System.out.println("Password has to include small and big letters");
+            return false;
+        } else if (!stringHasNoEasyPattern(sPassword)) {
+            System.out.println("Password has to exclude easy patterns");
             return false;
         } else {
             return true;
